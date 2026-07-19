@@ -541,7 +541,7 @@ body::-webkit-scrollbar{
 
         min-width:100%;
 
-        padding:28px 22px 140px;   /* <-- thêm khoảng trống phía dưới */
+        padding:28px 22px 105px;   /* <-- thêm khoảng trống phía dưới */
 
         border-radius:20px;
 
