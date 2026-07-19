@@ -1084,32 +1084,33 @@ body::-webkit-scrollbar{
 
     display:grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(4,minmax(90px,1fr));
 
-    gap:12px;
-
-    width:100%;
+    gap:16px;
 
 }
 
 .count-box{
 
+    width:100%;
+
+    min-height:110px;
+
     aspect-ratio:1;
 
-    display:flex;
+    background:#fff;
 
-    flex-direction:column;
+    border-radius:24px;
+
+    display:flex;
 
     justify-content:center;
 
     align-items:center;
 
-    background:#fff;
+    flex-direction:column;
 
-    border-radius:22px;
-
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.08);
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
 
     transition:.3s;
 
@@ -1389,17 +1390,23 @@ body::-webkit-scrollbar{
 
     }
 
+    .count-box{
+
+        min-height:88px;
+
+    }
+
     .count-box span{
 
-        font-size:36px;
+        font-size:40px;
 
     }
 
     .count-box small{
 
-        font-size:14px;
+        font-size:15px;
 
-        margin-top:6px;
+        margin-top:8px;
 
     }
 
