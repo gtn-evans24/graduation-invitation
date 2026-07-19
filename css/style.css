@@ -523,11 +523,6 @@ body::-webkit-scrollbar{
     }
 
 }
-
-/*==========================
-        MOBILE
-==========================*/
-
 @media (max-width:768px){
 
     .scene.invitation{
@@ -546,7 +541,7 @@ body::-webkit-scrollbar{
 
         min-width:100%;
 
-        padding:28px 22px;
+        padding:28px 22px 140px;   /* <-- thêm khoảng trống phía dưới */
 
         border-radius:20px;
 
@@ -584,11 +579,13 @@ body::-webkit-scrollbar{
 
     .letter-decoration{
 
-        width:90px;
+        width:100px;     /* <-- giữ theo ý bạn */
 
-        left:-20px;
+        left:-15px;
 
-        bottom:5px;
+        bottom:-20px;
+
+        opacity:.9;      /* <-- giữ lại */
 
     }
 
@@ -617,7 +614,6 @@ body::-webkit-scrollbar{
     }
 
 }
-
 /*==================================================
                 JOURNEY STORY
 ==================================================*/
