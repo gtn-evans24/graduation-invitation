@@ -1325,11 +1325,6 @@ body::-webkit-scrollbar{
     font-size:15px;
 
 }
-
-/*==========================
-            MOBILE
-==========================*/
-
 @media(max-width:768px){
 
     .countdown-wrapper{
@@ -1340,27 +1335,35 @@ body::-webkit-scrollbar{
 
         gap:35px;
 
+        align-items:center;
+
     }
 
     .calendar-panel{
 
+        width:100%;
+
         max-width:100%;
 
-        padding:22px;
+        padding:16px;
 
         border-radius:24px;
+
+        overflow:hidden;
+
+        box-sizing:border-box;
 
     }
 
     .calendar-grid{
 
-        gap:8px;
+        gap:5px;
 
     }
 
     .month{
 
-        font-size:32px;
+        font-size:30px;
 
     }
 
@@ -1370,13 +1373,19 @@ body::-webkit-scrollbar{
 
     }
 
+    .day-name{
+
+        font-size:13px;
+
+    }
+
     .date{
 
-        width:40px;
+        width:36px;
 
-        height:40px;
+        height:36px;
 
-        font-size:14px;
+        font-size:13px;
 
     }
 
