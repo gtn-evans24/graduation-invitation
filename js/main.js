@@ -563,3 +563,64 @@ mapGallery.onclick = function(e){
     }
 
 };
+
+// ==========================
+// PRELOAD BACKGROUND MUSIC
+// ==========================
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        const bgMusic = document.getElementById("bgMusic");
+
+        if (bgMusic) {
+
+            bgMusic.load();
+
+        }
+
+    }, 1000);
+
+});
+
+// ==========================
+// PRELOAD IMAGES
+// ==========================
+
+const preloadImages = [
+
+    "assets/images/1.png",
+
+    "assets/images/2.png",
+    "assets/images/3.jpg",
+    "assets/images/5.jpg",
+    "assets/images/6.jpg",
+    "assets/images/7.jpg",
+    "assets/images/9.jpg",
+    "assets/images/11.jpg",
+    "assets/images/14.jpg",
+    "assets/images/15.jpg",
+    "assets/images/16.jpg",
+
+    "assets/images/map1.png",
+
+    "assets/invitation/graduation-invitation.jpg"
+
+];
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        preloadImages.forEach(src => {
+
+            const img = new Image();
+
+            img.src = src;
+
+        });
+
+    }, 1500);
+
+});
