@@ -391,206 +391,41 @@ window.addEventListener(
 
     }
 );
-/*====================================================
-                JOURNEY STORY V2
-====================================================*/
 
-const journeySection = document.querySelector(".journey-section");
+/*==============================
+        MEMORY GALLERY
+==============================*/
 
-if (journeySection) {
+const viewer = document.getElementById("photoViewer");
+const viewerImg = document.getElementById("viewerImage");
 
-    const path = document.getElementById("journeyPath");
-    const bgPath = document.getElementById("journeyPathBg");
+document.querySelectorAll(".memory-item").forEach(img=>{
 
-    const cards = document.querySelectorAll(".memory-card");
+    img.onclick=()=>{
 
-    const modal = document.getElementById("memoryModal");
-    const closeBtn = document.getElementById("closeMemory");
+        viewer.classList.add("active");
 
-    const title = document.getElementById("memoryTitle");
-    const text = document.getElementById("memoryText");
-    const image = document.getElementById("memoryImage");
-
-    /*==============================
-            PATH
-    ==============================*/
-
-    const length = bgPath.getTotalLength();
-
-    path.style.strokeDasharray = length;
-    path.style.strokeDashoffset = length;
-
-    let currentProgress = 0;
-    let targetProgress = 0;
-
-    /*==============================
-            MOUSE MOVE
-    ==============================*/
-
-    journeySection.addEventListener("mousemove", (e) => {
-
-        const rect = journeySection.getBoundingClientRect();
-
-        targetProgress =
-
-            (e.clientY - rect.top)
-
-            / rect.height;
-
-        targetProgress = Math.max(0, Math.min(1, targetProgress));
-
-    });
-
-    /*==============================
-            MOUSE LEAVE
-    ==============================*/
-
-    journeySection.addEventListener("mouseleave", () => {
-
-        targetProgress = 0;
-
-    });
-
-    /*==============================
-            ANIMATION
-    ==============================*/
-
-    function animate() {
-
-        currentProgress +=
-
-            (targetProgress - currentProgress)
-
-            * 0.08;
-
-        path.style.strokeDashoffset =
-
-            length - currentProgress * length;
-
-    
-
-        requestAnimationFrame(animate);
-
-    }
-
-    animate();
-
-    /*==============================
-            CARD ACTIVE
-    ==============================*/
-
-    
-
-    /*==============================
-            MEMORY DATA
-    ==============================*/
-
-    const memories = {
-
-        0: {
-
-            title: "🏫 Ngày đầu nhập học",
-
-            image: "assets/images/start.jpg",
-
-            text:
-                "Ngày đầu tiên bước chân vào Đại học Văn Lang là một cảm giác vừa hồi hộp vừa háo hức. Từ đây, hành trình thanh xuân của Huyền chính thức bắt đầu."
-
-        },
-
-        1: {
-
-            title: "🌱 Năm nhất",
-
-            image: "assets/images/1.jpg",
-
-            text:
-                "Những buổi học đầu tiên, những người bạn đầu tiên và vô vàn điều mới mẻ đã tạo nên những ký ức không thể quên."
-
-        },
-
-        2: {
-
-            title: "💜 Năm hai",
-
-            image: "assets/images/2.jpg",
-
-            text:
-                "Thanh xuân rực rỡ với những hoạt động câu lạc bộ, sự kiện, những đêm chạy deadline và rất nhiều tiếng cười."
-
-        },
-
-        3: {
-
-            title: "✨ Năm ba",
-
-            image: "assets/images/3.jpg",
-
-            text:
-                "Những dự án Marketing, các trải nghiệm thực tế và từng bước trưởng thành để chuẩn bị cho tương lai."
-
-        },
-
-        4: {
-
-            title: "🎓 Ngày tốt nghiệp",
-
-            image: "assets/images/graduation.jpg",
-
-            text:
-                "Khép lại hành trình đại học bằng lòng biết ơn dành cho gia đình, thầy cô và bạn bè. Một chương mới của cuộc đời chính thức bắt đầu."
-
-        }
+        viewerImg.src=img.src;
 
     };
 
-    /*==============================
-            OPEN MODAL
-    ==============================*/
+});
 
-    cards.forEach(card => {
+document.getElementById("closeViewer").onclick=()=>{
 
-        card.addEventListener("click", () => {
+    viewer.classList.remove("active");
 
-            const year = Number(card.dataset.year);
+};
 
-            const memory = memories[year];
+viewer.onclick=(e)=>{
 
-            if (!memory) return;
+    if(e.target===viewer){
 
-            title.textContent = memory.title;
+        viewer.classList.remove("active");
 
-            text.textContent = memory.text;
+    }
 
-            image.src = memory.image;
-
-            modal.style.display = "flex";
-
-        });
-
-    });
-
-    /*==============================
-            CLOSE MODAL
-    ==============================*/
-
-    closeBtn.addEventListener("click", () => {
-
-        modal.style.display = "none";
-
-    });
-
-    modal.addEventListener("click", (e) => {
-
-        if (e.target === modal) {
-
-            modal.style.display = "none";
-
-        }
-
-    });
-
-}
+};
 
 /*==============================
         INVITATION
@@ -694,3 +529,37 @@ setInterval(
     1200
 
 );
+
+/* =========================
+   MAP GALLERY
+========================= */
+const mapGallery =
+document.getElementById("mapGallery");
+
+document
+.getElementById("openMapGallery")
+.onclick = () => {
+
+    mapGallery.style.display = "flex";
+
+};
+
+document
+.getElementById("closeMapGallery")
+.onclick = () => {
+
+    mapGallery.style.display = "none";
+
+};
+
+// Bấm nền tối để đóng
+
+mapGallery.onclick = function(e){
+
+    if(e.target === mapGallery){
+
+        mapGallery.style.display = "none";
+
+    }
+
+};

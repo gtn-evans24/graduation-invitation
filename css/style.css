@@ -166,9 +166,9 @@ body::-webkit-scrollbar{
 
 .hero-subtitle{
 
-    color:#EC4899;
+    color:#000;
 
-    font-size:18px;
+    font-size:22px;
     font-weight:700;
 
     letter-spacing:6px;
@@ -178,12 +178,16 @@ body::-webkit-scrollbar{
 
 .hero-name{
 
-    color:#A855F7;
+    color:#EC4899;
+    font-family:'Great Vibes', cursive;
 
-    font-size:64px;
+    font-size:60px;
     font-weight:800;
 
     margin-bottom:20px;
+    letter-spacing:3px;
+
+    text-transform:none;
 }
 
 .hero-major{
@@ -293,10 +297,10 @@ body::-webkit-scrollbar{
     gap:70px;
 }
 
+
 /*==========================
         LETTER
 ==========================*/
-
 .letter-paper{
 
     position:relative;
@@ -306,13 +310,68 @@ body::-webkit-scrollbar{
     background:#FFFDFB;
 
     min-width:420px;
+    max-width:520px;
 
-    padding:50px;
+    height:700px;
+
+    padding:40px;
 
     border-radius:16px;
 
     box-shadow:
         0 15px 35px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+
+}
+.letter-body{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding-right:10px;
+
+    margin-bottom:15px;
+
+}
+
+.letter-paper p{
+
+    font-size:15px;
+
+    line-height:1.75;
+
+    color:#555;
+
+    text-align:justify;
+
+    text-indent:2em;
+
+    margin-bottom:14px;
+
+}
+
+.letter-body::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.letter-body::-webkit-scrollbar-thumb{
+
+    background:#E9D5FF;
+
+    border-radius:20px;
+
+}
+
+.letter-body::-webkit-scrollbar-track{
+
+    background:transparent;
 
 }
 
@@ -335,27 +394,16 @@ body::-webkit-scrollbar{
 
     color:#EC4899;
 
-    margin-bottom:35px;
+    margin-bottom:25px;
 
 }
 
-.letter-paper p{
-
-    font-size:20px;
-
-    line-height:2;
-
-    color:#555;
-
-    text-align:justify;
-
-    margin-bottom:24px;
-
-}
 
 .signature{
 
-    margin-top:45px;
+    flex-shrink:0;
+
+    margin-top:8px;
 
     text-align:right;
 
@@ -369,13 +417,15 @@ body::-webkit-scrollbar{
 
     display:block;
 
-    margin-top:10px;
+    margin-top:8px;
 
     color:#EC4899;
 
-    font-size:22px;
+    font-size:18px;
 
     font-weight:bold;
+
+    line-height:1.5;
 
 }
 
@@ -387,8 +437,8 @@ body::-webkit-scrollbar{
 
     position:absolute;
 
-    left:-50px;
-    bottom:-15px;
+    left: 0px;
+    bottom:-20px;
 
     width:130px;
 
@@ -397,7 +447,6 @@ body::-webkit-scrollbar{
     opacity:.95;
 
 }
-
 /*==========================
         PHOTO
 ==========================*/
@@ -414,24 +463,44 @@ body::-webkit-scrollbar{
 
 }
 
+/* Graduation Cap */
+
 .cap-decoration{
 
     position:absolute;
 
-    top:-100px;
-    left:50%;
+    top:-50px;
+    left:120%;
 
     width:200px;
 
     transform:
-        translateX(-50%)
-        rotate(-12deg);
+        translateX(-100%)
+        rotate(40deg);
 
     pointer-events:none;
 
     z-index:20;
 
     animation:floatCap 3s ease-in-out infinite;
+
+}
+
+/* Floating */
+
+@keyframes floatCap{
+
+    0%,100%{
+
+        margin-top:0;
+
+    }
+
+    50%{
+
+        margin-top:-6px;
+
+    }
 
 }
 
@@ -477,32 +546,6 @@ body::-webkit-scrollbar{
 }
 
 /*==========================
-        CAP
-==========================*/
-
-@keyframes floatCap{
-
-    0%,100%{
-
-        transform:
-            translateX(-50%)
-            rotate(-12deg)
-            translateY(0);
-
-    }
-
-    50%{
-
-        transform:
-            translateX(-50%)
-            rotate(-12deg)
-            translateY(-6px);
-
-    }
-
-}
-
-/*==========================
         TABLET
 ==========================*/
 
@@ -522,7 +565,40 @@ body::-webkit-scrollbar{
 
     }
 
+    .graduate-photo{
+
+        width:100%;
+
+    }
+
+    .photo-frame{
+
+        width:360px;
+
+        height:460px;
+
+    }
+
+    .cap-decoration{
+
+        width:170px;
+
+        top:-40px;
+
+        left:108%;
+
+        transform:
+            translateX(-100%)
+            rotate(40deg);
+
+    }
+
 }
+
+/*==========================
+        MOBILE
+==========================*/
+
 @media (max-width:768px){
 
     .scene.invitation{
@@ -541,27 +617,19 @@ body::-webkit-scrollbar{
 
         min-width:100%;
 
-        padding:28px 22px 105px;   /* <-- thêm khoảng trống phía dưới */
+        max-width:100%;
 
-        border-radius:20px;
+        height:620px;
 
-    }
-
-    .letter-paper h2{
-
-        font-size:32px;
-
-        margin-bottom:24px;
+        padding:28px 22px;
 
     }
 
     .letter-paper p{
 
-        font-size:16px;
+        font-size:14px;
 
-        line-height:1.8;
-
-        text-align:left;
+        line-height:1.7;
 
     }
 
@@ -579,13 +647,13 @@ body::-webkit-scrollbar{
 
     .letter-decoration{
 
-        width:100px;     /* <-- giữ theo ý bạn */
+        width:100px;
 
         left:-15px;
 
         bottom:-20px;
 
-        opacity:.9;      /* <-- giữ lại */
+        opacity:.9;
 
     }
 
@@ -607,417 +675,254 @@ body::-webkit-scrollbar{
 
     .cap-decoration{
 
-        width:150px;
+        width:130px;
 
-        top:-70px;
+        top:-30px;
+
+        left:102%;
+
+        transform:
+            translateX(-100%)
+            rotate(40deg);
 
     }
 
 }
 /*==================================================
-                JOURNEY STORY
+                MEMORY GALLERY
 ==================================================*/
 
-.journey-section{
-    background:none;
-    overflow:hidden;
-}
-
-.journey-desc{
-    text-align:center;
-    color:#777;
-    margin:10px 0 35px;
-}
-
-.journey-wrapper{
+.memory-section{
 
     position:relative;
 
-    width:100%;
-    max-width:900px;
-    height:540px;
+    overflow:hidden;
 
-    margin:auto;
 }
 
-/*==========================
-            SVG
-==========================*/
-
-.journey-svg{
+.memory-overlay{
 
     position:absolute;
+
     inset:0;
 
+    background:rgba(255,255,255,.35);
+
+    backdrop-filter:blur(8px);
+
+    z-index:0;
+
+}
+
+.memory-section .scene-content{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+}
+
+.memory-section h2{
+
+    text-align:center;
+
+    margin:0 auto 20px;
+
+}
+
+.memory-gallery{
+
     width:100%;
-    height:100%;
 
-    z-index:1;
+    max-width:1700px;
+
+    margin:55px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:18px;
+
 }
 
-#journeyPath{
+.memory-item{
 
-    stroke-dasharray:1000;
-    stroke-dashoffset:1000;
+    width:100%;
 
-    transition:stroke-dashoffset .18s linear;
+    aspect-ratio:16/10;
 
-}
+    object-fit:cover;
 
-/*==========================
-        MEMORY CARD
-==========================*/
-
-.memory-card,
-.start-card,
-.end-card{
-
-    position:absolute;
-
-    width:165px;
-    height:90px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    background:rgba(255,255,255,.82);
-
-    backdrop-filter:blur(12px);
+    border:12px solid #fff;
 
     border-radius:18px;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.08);
+        0 12px 28px rgba(0,0,0,.15);
 
     cursor:pointer;
 
     transition:.35s;
 
-    z-index:10;
+}
+
+
+.memory-item:nth-child(odd){
+
+    transform:rotate(-3deg);
 
 }
 
-.start-card,
-.end-card{
+.memory-item:nth-child(even){
 
-    width:170px;
-    height:95px;
-
-    background:rgba(255,255,255,.88);
-
-    z-index:20;
+    transform:rotate(3deg);
 
 }
 
-.memory-icon{
+.memory-item:hover{
 
-    font-size:30px;
+    transform:
 
-    margin-bottom:8px;
+        rotate(0deg)
 
-}
+        translateY(-12px)
 
-.memory-card h3,
-.start-card h3,
-.end-card h3{
-
-    color:#A855F7;
-
-    font-size:18px;
-
-    margin-bottom:4px;
-
-    transition:.3s;
-
-}
-
-.memory-card p,
-.start-card p,
-.end-card p{
-
-    color:#888;
-
-    font-size:14px;
-
-    transition:.3s;
-
-}
-
-/*==========================
-            HOVER
-==========================*/
-
-.memory-card:hover,
-.start-card:hover,
-.end-card:hover{
-
-    background:
-        linear-gradient(
-            135deg,
-            #FFE4F2,
-            #F5E8FF
-        );
+        scale(1.05);
 
     box-shadow:
-        0 0 35px rgba(236,72,153,.35);
+
+        0 25px 40px rgba(236,72,153,.25);
 
 }
 
-.memory-card:hover{
+.memory-section h2{
 
-    transform:
-        translateY(-6px)
-        scale(1.06);
+    font-size:48px;
 
 }
 
-.start-card:hover,
-.end-card:hover{
+.memory-desc{
 
-    transform:
-        translateX(-50%)
-        translateY(-6px)
-        scale(1.06);
+    font-size:20px;
 
-}
+    line-height:1.9;
 
-.memory-card:hover h3,
-.start-card:hover h3,
-.end-card:hover h3{
+    max-width:900px;
 
-    color:#EC4899;
+    margin:20px auto 0;
 
 }
 
-.memory-card:hover p,
-.start-card:hover p,
-.end-card:hover p{
+/*=============================
+        VIEWER
+=============================*/
 
-    color:#666;
-
-}
-
-/*==========================
-        ACTIVE
-==========================*/
-
-.start-card.active,
-.end-card.active{
-
-    background:
-        linear-gradient(
-            135deg,
-            #FFE4F2,
-            #F5E8FF
-        );
-
-    transform:
-        translateX(-50%)
-        scale(1.06);
-
-    box-shadow:
-        0 0 35px rgba(236,72,153,.35);
-
-}
-
-/*==========================
-        POSITION
-==========================*/
-
-.start-card{
-
-    top:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-.year1{
-
-    top:95px;
-
-    right:70px;
-
-}
-
-.year2{
-
-    top:220px;
-
-    left:70px;
-
-}
-
-.year3{
-
-    top:345px;
-
-    right:70px;
-
-}
-
-.end-card{
-
-    bottom:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-/*==========================
-            MODAL
-==========================*/
-
-.memory-modal{
+.photo-viewer{
 
     position:fixed;
 
     inset:0;
 
+    background:rgba(0,0,0,.88);
+
     display:none;
 
     justify-content:center;
-    align-items:center;
 
-    background:rgba(0,0,0,.55);
+    align-items:center;
 
     z-index:99999;
 
 }
 
-.memory-content{
+.photo-viewer.active{
 
-    width:min(90%,700px);
-
-    background:#fff;
-
-    border-radius:25px;
-
-    padding:30px;
-
-    position:relative;
-
-    text-align:center;
-
-    animation:popup .35s;
+    display:flex;
 
 }
 
-.memory-content img{
+.photo-viewer img{
 
-    width:100%;
+    max-width:88vw;
 
-    border-radius:18px;
+    max-height:88vh;
 
-    margin-bottom:20px;
+    border-radius:20px;
 
-}
-
-.memory-content h2{
-
-    color:#A855F7;
-
-    margin-bottom:15px;
+    border:8px solid #fff;
 
 }
 
-.memory-content p{
-
-    color:#666;
-
-    line-height:1.8;
-
-}
-
-#closeMemory{
+.viewer-close{
 
     position:absolute;
 
-    top:20px;
-    right:20px;
+    top:30px;
 
-    width:40px;
-    height:40px;
+    right:35px;
+
+    width:52px;
+
+    height:52px;
 
     border:none;
 
     border-radius:50%;
 
-    background:#F3E8FF;
-
-    color:#A855F7;
+    background:#fff;
 
     cursor:pointer;
 
-}
+    font-size:22px;
 
-@keyframes popup{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
 
 }
-
-/*==========================
-            MOBILE
-==========================*/
 
 @media(max-width:768px){
 
-    .journey-wrapper{
+    .memory-gallery{
 
-        height:760px;
+        grid-template-columns:repeat(2,1fr);
 
-    }
-
-    .memory-card,
-    .start-card,
-    .end-card{
-
-        width:145px;
-        height:82px;
+        gap:18px;
 
     }
 
-    .year1{
+    .memory-item{
 
-        right:15px;
+        border-width:6px;
 
-    }
-
-    .year2{
-
-        left:15px;
+        border-radius:14px;
 
     }
 
-    .year3{
+    .memory-desc{
 
-        right:15px;
+        width:95%;
+
+        margin:auto;
+
+    }
+
+    .viewer-close{
+
+        top:18px;
+
+        right:18px;
+
+        width:46px;
+
+        height:46px;
+
+        font-size:20px;
 
     }
 
 }
-
 /*==================================================
             COUNTDOWN + CALENDAR
 ==================================================*/
@@ -1261,6 +1166,8 @@ body::-webkit-scrollbar{
 
 .graduation-day{
 
+    position:relative;
+
     background:linear-gradient(
         135deg,
         #FFE4F2,
@@ -1269,21 +1176,33 @@ body::-webkit-scrollbar{
 
     color:#EC4899;
 
-    font-size:20px;
+    font-weight:700;
 
-    font-weight:bold;
+    border-radius:15px;
 
 }
 
-.graduation-day span{
+.graduation-day .day-number{
+
+    font-size:20px;
+
+    color:#EC4899;
+
+    line-height:1;
+
+}
+
+.graduation-day .day-heart{
 
     position:absolute;
 
+    top:6px;
+
     right:7px;
 
-    bottom:5px;
+    font-size:12px;
 
-    font-size:13px;
+    line-height:1;
 
 }
 
@@ -1422,10 +1341,26 @@ body::-webkit-scrollbar{
 
     }
 
+    .graduation-day .day-number{
+
+        font-size:16px;
+
+    }
+
+    .graduation-day .day-heart{
+
+        top:5px;
+
+        right:5px;
+
+        font-size:10px;
+
+    }
+
 }
 
 /*==================================================
-                RSVP
+                    RSVP
 ==================================================*/
 
 .rsvp-section{
@@ -1434,13 +1369,23 @@ body::-webkit-scrollbar{
 
 .rsvp-desc{
 
+    max-width:760px;
+
+    margin:0 auto 18px;
+
     text-align:center;
 
     color:#777;
 
-    line-height:1.8;
+    line-height:1.7;
 
-    margin:10px 0 35px;
+    font-size:18px;
+
+}
+
+.rsvp-desc:last-of-type{
+
+    margin-bottom:35px;
 
 }
 
@@ -1583,7 +1528,6 @@ body::-webkit-scrollbar{
     flex:1;
 
 }
-
 .submit-btn,
 .invite-btn{
 
@@ -1627,19 +1571,28 @@ body::-webkit-scrollbar{
 
 .invite-btn{
 
-    background:#fff;
+    border:none;
 
-    color:#A855F7;
+    color:#fff;
 
-    border:2px solid #E9D5FF;
+    background:
+        linear-gradient(
+            135deg,
+            #F59E0B,
+            #FB7185
+        );
+
+    box-shadow:
+        0 12px 25px rgba(251,113,133,.28);
 
 }
 
 .invite-btn:hover{
 
-    background:#F5E8FF;
-
     transform:translateY(-3px);
+
+    box-shadow:
+        0 18px 35px rgba(251,113,133,.35);
 
 }
 
@@ -1656,7 +1609,6 @@ body::-webkit-scrollbar{
     font-weight:600;
 
 }
-
 /*==========================
             MODAL
 ==========================*/
@@ -1685,25 +1637,41 @@ body::-webkit-scrollbar{
 
     position:relative;
 
-    width:min(90%,900px);
+    width:min(90vw,650px);
 
-    height:min(90vh,700px);
+    max-height:90vh;
 
-    overflow:hidden;
+    padding:20px;
+
+    background:#000;
 
     border-radius:24px;
 
-    background:#fff;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     animation:popup .35s;
 
 }
 
-.invitation-content iframe{
+.invitation-content img{
 
-    width:100%;
+    max-width:100%;
 
-    height:100%;
+    max-height:80vh;
+
+    width:auto;
+
+    height:auto;
+
+    display:block;
+
+    object-fit:contain;
+
+    border-radius:12px;
 
 }
 
@@ -1734,6 +1702,50 @@ body::-webkit-scrollbar{
 
 }
 
+.download-invitation{
+
+    position:absolute;
+
+    top:65px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#111;
+
+    text-decoration:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:20px;
+
+    box-shadow:
+        0 6px 15px rgba(0,0,0,.15);
+
+    transition:.25s;
+
+}
+
+.download-invitation:hover{
+
+    transform:scale(1.08);
+
+    background:#EC4899;
+
+    color:#fff;
+
+}
 /*==================================================
                 LOCATION
 ==================================================*/
@@ -1768,47 +1780,6 @@ body::-webkit-scrollbar{
 
 }
 
-.map-btn{
-
-    display:inline-flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    margin:28px auto;
-
-    padding:16px 34px;
-
-    border-radius:18px;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-size:20px;
-
-    font-weight:600;
-
-    background:
-        linear-gradient(
-            135deg,
-            #A855F7,
-            #EC4899
-        );
-
-    transition:.3s;
-
-}
-
-.map-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 12px 28px rgba(168,85,247,.28);
-
-}
 
 #map{
 
@@ -1842,7 +1813,235 @@ body::-webkit-scrollbar{
         0 6px 20px rgba(0,0,0,.08);
 
 }
+/*==================================================
+                MAP GALLERY
+==================================================*/
 
+.location-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+
+}
+
+.map-btn,
+.map-btn.secondary{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:220px;
+
+    height:56px;
+
+    margin:12px auto;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #A855F7,
+        #EC4899
+    );
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+    border:none;
+
+}
+
+.map-btn:hover,
+.map-btn.secondary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(168,85,247,.28);
+
+}
+
+
+
+/*==========================
+        POPUP
+==========================*/
+
+.map-gallery{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(5px);
+
+    z-index:999999;
+
+}
+
+.map-gallery-content{
+
+    position:relative;
+
+    width:min(92vw,900px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.map-gallery img{
+
+    width:100%;
+
+    max-height:80vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.map-image{
+
+    width:100%;
+
+    max-height:80vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.25);
+
+}
+
+/*==========================
+        CLOSE
+==========================*/
+
+.close-map{
+
+    position:absolute;
+
+    top:-55px;
+
+    right:0;
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#555;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.2);
+
+    transition:.25s;
+
+}
+
+.close-map:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/*==========================
+        MOBILE
+==========================*/
+
+@media(max-width:768px){
+
+    .location-buttons{
+
+        flex-direction:column;
+
+        gap:12px;
+
+    }
+
+    .location-buttons .map-btn{
+
+        width:100%;
+
+        max-width:280px;
+
+    }
+
+    .map-gallery-content{
+
+        width:92vw;
+
+    }
+
+    .map-gallery img{
+
+        border-radius:14px;
+
+    }
+
+
+    .close-map{
+
+        top:-48px;
+
+        right:0;
+
+    }
+
+}
 /*==========================
             MOBILE
 ==========================*/
@@ -2122,19 +2321,7 @@ body::-webkit-scrollbar{
 
 }
 
-.fuji{
 
-    left:50%;
-
-    bottom:0;
-
-    width:min(900px,90vw);
-
-    transform:translateX(-50%);
-
-    z-index:0;
-
-}
 
 /*==================================================
             POLAROID
@@ -2451,6 +2638,153 @@ body::-webkit-scrollbar{
     .sakura-right2{
 
         width:140px;
+
+    }
+
+}
+
+/*==========================
+        NOTE SECTION
+==========================*/
+
+.note-section{
+
+    padding:100px 20px;
+
+}
+
+.note-section h2{
+
+    text-align:center;
+
+    font-size:42px;
+
+    color:#EC4899;
+
+    margin-bottom:18px;
+
+}
+
+
+
+.note-list{
+
+    max-width:900px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.note-card{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+    padding:22px 24px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+
+}
+
+.note-icon{
+
+    width:52px;
+
+    height:52px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:26px;
+
+    border-radius:50%;
+
+    background:#FCE7F3;
+
+}
+
+.note-card p{
+
+    margin:0;
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+.note-card strong{
+
+    color:#EC4899;
+
+}
+
+.note-card.warning{
+
+    border-left:6px solid #EC4899;
+
+    background:#FFF8FB;
+
+}
+
+@media(max-width:768px){
+
+    .note-section{
+
+        padding:70px 18px;
+
+    }
+
+    .note-section h2{
+
+        font-size:32px;
+
+    }
+
+    
+    .note-card{
+
+        padding:18px;
+
+        gap:14px;
+
+    }
+
+    .note-icon{
+
+        width:42px;
+
+        height:42px;
+
+        font-size:22px;
+
+    }
+
+    .note-card p{
+
+        font-size:15px;
+
+        line-height:1.7;
 
     }
 
