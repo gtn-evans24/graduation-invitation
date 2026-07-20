@@ -72,6 +72,24 @@ body::-webkit-scrollbar{
 
 }
 
+.welcome-title{
+
+    font-size:40px;
+
+    font-weight:600;
+
+    color:#111;
+
+    text-align:center;
+
+    line-height:1;
+    text-transform:none;
+
+    margin:0 0 24px;
+
+}
+
+
 .hideWelcome{
     opacity:0;
     visibility:hidden;
