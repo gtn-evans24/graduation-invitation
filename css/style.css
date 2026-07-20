@@ -56,6 +56,22 @@ body::-webkit-scrollbar{
     transition:1s;
 }
 
+#welcomeScreen h1{
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:68px;
+
+    font-weight:400;
+
+    color:#EC4899;
+
+    letter-spacing:1px;
+
+    margin-bottom:12px;
+
+}
+
 .hideWelcome{
     opacity:0;
     visibility:hidden;
