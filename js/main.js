@@ -564,25 +564,7 @@ mapGallery.onclick = function(e){
 
 };
 
-// ==========================
-// PRELOAD BACKGROUND MUSIC
-// ==========================
 
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        const bgMusic = document.getElementById("bgMusic");
-
-        if (bgMusic) {
-
-            bgMusic.load();
-
-        }
-
-    }, 1000);
-
-});
 
 // ==========================
 // PRELOAD IMAGES
@@ -608,19 +590,16 @@ const preloadImages = [
     "assets/invitation/graduation-invitation.jpg"
 
 ];
+document.addEventListener("DOMContentLoaded", () => {
 
-window.addEventListener("load", () => {
+    preloadImages.forEach(src => {
 
-    setTimeout(() => {
+        const img = new Image();
 
-        preloadImages.forEach(src => {
+        img.decoding = "async";
 
-            const img = new Image();
+        img.src = src;
 
-            img.src = src;
-
-        });
-
-    }, 1500);
+    });
 
 });
