@@ -147,15 +147,16 @@ body::-webkit-scrollbar{
 }
 
 /*==================================================
-                    SCENE
+                    SCENE (FULLSCREEN ALL SCENES)
 ==================================================*/
 
 .scene{
-
     position:relative;
     z-index:10;
 
-    min-height:auto;
+    /* Đảm bảo tất cả các scene phủ kín full màn hình */
+    min-height:100vh;
+    min-height:100dvh; /* Hỗ trợ chuẩn chiều cao viewport mới trên iOS / Safari */
 
     display:flex;
     justify-content:center;
@@ -167,7 +168,6 @@ body::-webkit-scrollbar{
 }
 
 .scene-content{
-
     width:100%;
     max-width:1000px;
     margin:auto;
@@ -193,15 +193,15 @@ body::-webkit-scrollbar{
     background:none;
 }
 
-.hero-content{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
+
 
 .hero-icon{
 
@@ -622,7 +622,6 @@ body::-webkit-scrollbar{
 
     }
 
-    /* Đã sửa bỏ min-width: 420px gây co vỡ khung trên iPhone */
     .letter-paper {
         width: 100% !important;
         min-width: 0 !important;
@@ -2744,47 +2743,5 @@ body::-webkit-scrollbar{
     border-left:6px solid #EC4899;
 
     background:#FFF8FB;
-
-}
-
-@media(max-width:768px){
-
-    .note-section{
-
-        padding:70px 18px;
-
-    }
-
-    .note-section h2{
-
-        font-size:32px;
-
-    }
-
-    .note-card{
-
-        padding:18px;
-
-        gap:14px;
-
-    }
-
-    .note-icon{
-
-        width:42px;
-
-        height:42px;
-
-        font-size:22px;
-
-    }
-
-    .note-card p{
-
-        font-size:15px;
-
-        line-height:1.7;
-
-    }
 
 }
