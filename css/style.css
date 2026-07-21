@@ -14,7 +14,7 @@ html{
 }
 
 body{
-    font-family:"Segoe UI",sans-serif;
+    font-family:"Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     background:linear-gradient(
         180deg,
         #F7CFE0,
@@ -33,7 +33,7 @@ body::-webkit-scrollbar{
 }
 
 /*==================================================
-                WELCOME SCREEN
+                WELCOMING SCREEN
 ==================================================*/
 
 #welcomeScreen{
@@ -344,58 +344,83 @@ body::-webkit-scrollbar{
 }
 
 /*==========================
-        LETTER (FIXED)
+        LETTER (FIXED FOR IOS & RESPONSIVE)
 ==========================*/
 .letter-paper {
     position: relative;
-    flex: 1;
-    background: #FFFDFB;
     width: 100%;
     max-width: 520px;
-    height: 80vh;
-    padding: 25px 20px;
+    height: 620px;
+    padding: 35px 25px;
+    background: #FFFDFB;
     border-radius: 16px;
     box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    
+    /* Chuyển sang Grid để triệt tiêu bug Flexbox Overflow của iOS WebKit */
+    display: grid !important;
+    grid-template-rows: auto 1fr auto;
+    gap: 15px;
+    
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    isolation: isolate;
 
-    /* WebKit Fixes */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    /* WebKit Layer Fixes */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
-
+.letter-paper h2{
+    grid-row: 1;
+    text-align: center;
+    color: #EC4899;
+    margin-bottom: 5px;
+}
 
 .letter-body {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 10px;
+    grid-row: 2;
+    height: 100%;
     min-height: 0;
+    overflow-y: scroll !important; /* Force scroll */
+    padding-right: 8px;
 
-    /* Ép cuộn mượt & fix render chữ iOS */
+    /* Ép iOS render text layer chuẩn */
     -webkit-overflow-scrolling: touch;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    will-change: scroll-position;
 }
 
 .signature {
-    margin-top: 12px;
-    flex-shrink: 0;
+    grid-row: 3;
+    margin-top: 5px;
+    text-align: right;
+    color: #777;
+    font-style: italic;
+}
+
+.signature span {
+    display: block;
+    margin-top: 4px;
+    color: #EC4899;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
 }
 
 .letter-paper p {
-    font-family: sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.75 !important;
     color: #555;
-    text-align: left; /* Khuyên dùng 'left' cho mobile để tránh lỗi font-rendering của Safari */
+    text-align: left !important; /* Dùng left tránh lỗi font render của iOS */
     text-indent: 1.5em;
     margin-bottom: 14px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
-
 
 .paper-pin{
 
@@ -407,47 +432,6 @@ body::-webkit-scrollbar{
     transform:translateX(-50%);
 
     font-size:34px;
-
-}
-
-.letter-paper h2{
-
-    text-align:center;
-
-    color:#EC4899;
-
-    margin-bottom:25px;
-
-}
-
-
-.signature{
-
-    flex-shrink:0;
-
-    margin-top:8px;
-
-    text-align:right;
-
-    color:#777;
-
-    font-style:italic;
-
-}
-
-.signature span{
-
-    display:block;
-
-    margin-top:8px;
-
-    color:#EC4899;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    line-height:1.5;
 
 }
 
@@ -468,7 +452,9 @@ body::-webkit-scrollbar{
 
     opacity:.95;
 
+    pointer-events: none;
 }
+
 /*==========================
         PHOTO
 ==========================*/
@@ -583,7 +569,8 @@ body::-webkit-scrollbar{
 
     .letter-paper{
 
-        min-width:100%;
+        width: 100%;
+        max-width: 100%;
 
     }
 
@@ -618,14 +605,14 @@ body::-webkit-scrollbar{
 }
 
 /*==========================
-        MOBILE
+        MOBILE (FIXED CRITICAL BUGS)
 ==========================*/
 
 @media (max-width:768px){
 
     .scene.invitation{
 
-        padding:60px 18px;
+        padding:40px 15px;
 
     }
 
@@ -635,39 +622,41 @@ body::-webkit-scrollbar{
 
     }
 
+    /* Đã sửa bỏ min-width: 420px gây co vỡ khung trên iPhone */
     .letter-paper {
-        min-width: 420px;
-        height: 700px;
-        padding: 40px;
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 560px !important;
+        padding: 25px 18px !important;
     }
 
     .letter-paper p{
 
         font-size:14px;
 
-        line-height:1.7;
+        line-height:1.7 !important;
 
     }
 
     .signature{
 
-        margin-top:30px;
+        margin-top:10px;
 
     }
 
     .signature span{
 
-        font-size:18px;
+        font-size:16px;
 
     }
 
     .letter-decoration{
 
-        width:100px;
+        width:90px;
 
-        left:-15px;
+        left:-10px;
 
-        bottom:-20px;
+        bottom:-15px;
 
         opacity:.9;
 
@@ -704,6 +693,7 @@ body::-webkit-scrollbar{
     }
 
 }
+
 /*==================================================
                 MEMORY GALLERY
 ==================================================*/
@@ -725,6 +715,7 @@ body::-webkit-scrollbar{
     background:rgba(255,255,255,.35);
 
     backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
 
     z-index:0;
 
@@ -939,6 +930,7 @@ body::-webkit-scrollbar{
     }
 
 }
+
 /*==================================================
             COUNTDOWN + CALENDAR
 ==================================================*/
@@ -1261,6 +1253,7 @@ body::-webkit-scrollbar{
     font-size:15px;
 
 }
+
 @media(max-width:768px){
 
     .countdown-wrapper{
@@ -1418,6 +1411,7 @@ body::-webkit-scrollbar{
     background:rgba(255,255,255,.82);
 
     backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
 
     box-shadow:
         0 18px 45px rgba(0,0,0,.08);
@@ -1467,7 +1461,7 @@ body::-webkit-scrollbar{
 }
 
 /*==========================
-        INPUT
+            INPUT
 ==========================*/
 
 #rsvpForm input,
@@ -1625,6 +1619,7 @@ body::-webkit-scrollbar{
     font-weight:600;
 
 }
+
 /*==========================
             MODAL
 ==========================*/
@@ -1644,6 +1639,7 @@ body::-webkit-scrollbar{
     background:rgba(0,0,0,.65);
 
     backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
 
     z-index:999999;
 
@@ -1762,6 +1758,7 @@ body::-webkit-scrollbar{
     color:#fff;
 
 }
+
 /*==================================================
                 LOCATION
 ==================================================*/
@@ -1829,6 +1826,7 @@ body::-webkit-scrollbar{
         0 6px 20px rgba(0,0,0,.08);
 
 }
+
 /*==================================================
                 MAP GALLERY
 ==================================================*/
@@ -1898,8 +1896,6 @@ body::-webkit-scrollbar{
 
 }
 
-
-
 /*==========================
         POPUP
 ==========================*/
@@ -1919,6 +1915,7 @@ body::-webkit-scrollbar{
     background:rgba(0,0,0,.75);
 
     backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
 
     z-index:999999;
 
@@ -2013,9 +2010,8 @@ body::-webkit-scrollbar{
 
 }
 
-
 /*==========================
-        MOBILE
+            MOBILE
 ==========================*/
 
 @media(max-width:768px){
@@ -2048,7 +2044,6 @@ body::-webkit-scrollbar{
 
     }
 
-
     .close-map{
 
         top:-48px;
@@ -2056,13 +2051,6 @@ body::-webkit-scrollbar{
         right:0;
 
     }
-
-}
-/*==========================
-            MOBILE
-==========================*/
-
-@media(max-width:768px){
 
     .rsvp-card{
 
@@ -2337,8 +2325,6 @@ body::-webkit-scrollbar{
 
 }
 
-
-
 /*==================================================
             POLAROID
 ==================================================*/
@@ -2612,7 +2598,7 @@ body::-webkit-scrollbar{
 }
 
 /*==================================================
-                MOBILE
+                MOBILE OTHER DECOR
 ==================================================*/
 
 @media(max-width:768px){
@@ -2680,8 +2666,6 @@ body::-webkit-scrollbar{
     margin-bottom:18px;
 
 }
-
-
 
 .note-list{
 
@@ -2777,7 +2761,6 @@ body::-webkit-scrollbar{
 
     }
 
-    
     .note-card{
 
         padding:18px;
