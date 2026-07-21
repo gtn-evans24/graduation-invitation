@@ -343,71 +343,62 @@ body::-webkit-scrollbar{
     gap:70px;
 }
 
-
 /*==========================
-        LETTER
+        LETTER (FIXED)
 ==========================*/
-.letter-paper{
+.letter-paper {
+    position: relative;
+    flex: 1;
+    background: #FFFDFB;
+    width: 100%;
+    max-width: 520px;
+    height: 80vh;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
-    position:relative;
-
-    flex:1;
-
-    background:#FFFDFB;
-
-    min-width:420px;
-    max-width:520px;
-
-    height:700px;
-
-    padding:40px;
-
-    border-radius:16px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-
-    overflow:hidden;
-
-    display:flex;
-    flex-direction:column;
-
+    /* WebKit Fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-.letter-body{
-
-    flex:1;
-
-    overflow-y:auto;
-
-    padding-right:10px;
-
-    min-height:0;
-
-    -webkit-overflow-scrolling:touch;
-
+@media (min-width: 768px) {
+    .letter-paper {
+        min-width: 420px;
+        height: 700px;
+        padding: 40px;
+    }
 }
 
-.signature{
+.letter-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    min-height: 0;
 
-    margin-top:12px;
-
-    flex-shrink:0;
-
+    /* Ép cuộn mượt & fix render chữ iOS */
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
-.letter-paper p{
 
-    font-size:15px;
+.signature {
+    margin-top: 12px;
+    flex-shrink: 0;
+}
 
-    line-height:1.75;
-
-    color:#555;
-
-    text-align:justify;
-
-    text-indent:2em;
-
-    margin-bottom:14px;
-
+.letter-paper p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #555;
+    text-align: left; /* Khuyên dùng 'left' cho mobile để tránh lỗi font-rendering của Safari */
+    text-indent: 1.5em;
+    margin-bottom: 14px;
 }
 
 
