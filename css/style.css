@@ -2745,3 +2745,81 @@ body::-webkit-scrollbar{
     background:#FFF8FB;
 
 }
+
+.sending-overlay{
+
+    position:fixed;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(8px);
+
+    z-index:999999;
+
+}
+
+.sending-overlay.show{
+
+    display:flex;
+
+}
+
+.sending-card{
+
+    width:min(90vw,380px);
+
+    padding:35px;
+
+    border-radius:24px;
+
+    background:#fff;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+.sending-spinner{
+
+    width:56px;
+    height:56px;
+
+    margin:0 auto 20px;
+
+    border:5px solid #F3E8FF;
+    border-top-color:#EC4899;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+#sendingCountdown{
+
+    margin-top:20px;
+
+    color:#EC4899;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+}

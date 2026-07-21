@@ -348,7 +348,28 @@ document.getElementById("rsvpForm").addEventListener("submit", async function(e)
         document.getElementById("message").value
     );
 
+    const guestName =
+    document.getElementById("name").value;
+
     try{
+
+        sendingOverlay.classList.add("show");
+
+        let sec = 5;
+
+        sendingCountdown.textContent = sec;
+
+        const timer = setInterval(()=>{
+
+            sec--;
+
+            if(sec >= 0){
+
+                sendingCountdown.textContent = sec;
+
+            }
+
+        },1000);
 
         await fetch(
             "https://docs.google.com/forms/d/e/1FAIpQLScHLK13nIgno3pk4u2rcJ9_DmZv_JQ8UNlUKo46mjGZH2xKcg/formResponse",
@@ -359,8 +380,15 @@ document.getElementById("rsvpForm").addEventListener("submit", async function(e)
             }
         );
 
+        // Giữ khách ở lại thêm 5 giây
+        await new Promise(resolve=>setTimeout(resolve,5000));
+
+        clearInterval(timer);
+
+        sendingOverlay.classList.remove("show");
+
         document.getElementById("rsvpResult").innerHTML = `
-            💜 Cảm ơn <strong>${document.getElementById("name").value}</strong>!
+            💜 Cảm ơn <strong>${guestName}</strong>!
             <br>
             Phản hồi của bạn đã được ghi nhận.
         `;
@@ -368,6 +396,8 @@ document.getElementById("rsvpForm").addEventListener("submit", async function(e)
         this.reset();
 
     }catch(err){
+
+        sendingOverlay.classList.remove("show");
 
         document.getElementById("rsvpResult").innerHTML =
         "❌ Có lỗi xảy ra, vui lòng thử lại.";
