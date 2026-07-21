@@ -10,7 +10,7 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-snap-type:y mandatory;
+    /*scroll-snap-type:y mandatory;*/
 }
 
 body{
@@ -163,7 +163,7 @@ body::-webkit-scrollbar{
 
     padding:40px 20px;
 
-    scroll-snap-align:start;
+    /*scroll-snap-align:start;*/
 }
 
 .scene-content{
@@ -351,59 +351,49 @@ body::-webkit-scrollbar{
 
     position:relative;
 
+    flex:1;
+
     background:#FFFDFB;
 
-    width:100%;
+    min-width:420px;
     max-width:520px;
 
     height:700px;
 
+    padding:40px;
+
+    border-radius:16px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
     overflow:hidden;
 
-}
-
-.letter-scroll{
-
-    position:absolute;
-
-    inset:40px;
-
-    overflow-y:auto;
-
-    -webkit-overflow-scrolling:touch;
-
-}
-
-.letter-scroll::-webkit-scrollbar{
-
-    width:6px;
-
-}
-
-.letter-scroll::-webkit-scrollbar-thumb{
-
-    background:#E9D5FF;
-
-    border-radius:20px;
-
-}
-
-.letter-scroll::-webkit-scrollbar-track{
-
-    background:transparent;
+    display:flex;
+    flex-direction:column;
 
 }
 
 .letter-body{
 
-    padding-right:0;
+    flex:1;
 
-    overflow:visible;
+    overflow-y:auto;
 
-    height:auto;
+    padding-right:10px;
+
+    min-height:0;
+
+    -webkit-overflow-scrolling:touch;
 
 }
 
+.signature{
+
+    margin-top:12px;
+
+    flex-shrink:0;
+
+}
 .letter-paper p{
 
     font-size:15px;
