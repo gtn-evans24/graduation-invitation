@@ -367,13 +367,7 @@ body::-webkit-scrollbar{
     backface-visibility: hidden;
 }
 
-@media (min-width: 768px) {
-    .letter-paper {
-        min-width: 420px;
-        height: 700px;
-        padding: 40px;
-    }
-}
+
 
 .letter-body {
     flex: 1;
@@ -393,6 +387,7 @@ body::-webkit-scrollbar{
 }
 
 .letter-paper p {
+    font-family: sans-serif !important;
     font-size: 15px;
     line-height: 1.75;
     color: #555;
@@ -640,16 +635,10 @@ body::-webkit-scrollbar{
 
     }
 
-    .letter-paper{
-
-        min-width:100%;
-
-        max-width:100%;
-
-        height:620px;
-
-        padding:28px 22px;
-
+    .letter-paper {
+        min-width: 420px;
+        height: 700px;
+        padding: 40px;
     }
 
     .letter-paper p{
