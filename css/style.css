@@ -371,17 +371,23 @@ body::-webkit-scrollbar{
 
     -webkit-overflow-scrolling:touch;
 }
+
 .letter-body{
 
     flex:1;
 
     min-height:0;
 
-    overflow-y:auto;
+    overflow:auto;
 
-    overflow-x:hidden;
+    -webkit-overflow-scrolling: touch;
 
-    -webkit-overflow-scrolling:touch;
+    transform: translateZ(0);
+
+    -webkit-transform: translateZ(0);
+
+    will-change: transform;
+
 }
 
 .letter-paper p{
