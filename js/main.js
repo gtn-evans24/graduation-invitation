@@ -572,22 +572,22 @@ mapGallery.onclick = function(e){
 
 const preloadImages = [
 
-    "assets/images/1.png",
+    "assets/images-web/1.webp",
 
-    "assets/images/2.png",
-    "assets/images/3.jpg",
-    "assets/images/5.jpg",
-    "assets/images/6.jpg",
-    "assets/images/7.jpg",
-    "assets/images/9.jpg",
-    "assets/images/11.jpg",
-    "assets/images/14.jpg",
-    "assets/images/15.jpg",
-    "assets/images/16.jpg",
+    "assets/images-web/2.webp",
+    "assets/images-web/3.webp",
+    "assets/images-web/5.webp",
+    "assets/images-web/6.webp",
+    "assets/images-web/7.webp",
+    "assets/images-web/9.webp",
+    "assets/images-web/11.webp",
+    "assets/images-web/14.webp",
+    "assets/images-web/15.webp",
+    "assets/images-web/16.webp",
 
-    "assets/images/map1.png",
+    "assets/images-web/map1.webp",
 
-    "assets/invitation/graduation-invitation.jpg"
+    "assets/images-web/graduation-invitation.webp"
 
 ];
 document.addEventListener("DOMContentLoaded", () => {
