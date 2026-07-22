@@ -2823,3 +2823,19 @@ body::-webkit-scrollbar{
     font-weight:bold;
 
 }
+
+.thanks-actions{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.thanks-actions .invite-btn{
+
+    min-width:240px;
+
+}
